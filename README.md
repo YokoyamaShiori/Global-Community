@@ -1,24 +1,25 @@
-# README
+1.アプリケーションの名前
+ Gloval Community
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2.概要
+ 発案の経緯：自身が英語を学習する中で、英会話スクールより手軽に、英語圏の人々が実際に使う英語に触れる機会を作ることはなかなか難しいことに気づいた。
+ 　　　　　　同時に、日本語を学びたいと考えている外国人も多くいることも知った。
+ 　　　　　　自国にいながら、生の外国語に触れられるサービスがあればと思い、制作した。
+ ターゲット：英語での日常会話を気軽に学びたい日本人と、日本語を学びたい外国人
+ 内容：英語を学びたい人と日本語を学びたい人がマッチングできる。
+ 　　　チャットやコメント機能を使って、使用したい英語・日本語のフレーズを気軽に添削し合える。
+ 　　　学習した英語・日本語のフレーズを、他のユーザーと電話で会話する中でアウトプットできる。
+ 　　　　　　
+3.使用技術
+ 開発言語：Ruby
+ サーバーサイドフレームワーク：Ruby on Rails
+ フロントエンド：Bootstrap
+ インフラ：AWS(Cloud9)
+ データベース・データストア：MySQL
+ 進行管理：GitHub
+ 
+4.システム構成図
 
-Things you may want to cover:
+5.ライセンス情報
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+6.今後追加したい機能など
