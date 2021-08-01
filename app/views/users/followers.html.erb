@@ -3,9 +3,11 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title"><%= @user.name %></h3>
+        <p><%= @user.skill %></p>
       </div>
       <div class="card-body">
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <p><%= @user.introduce %></p>
       </div>
     </div>
     <%= render 'relationships/follow_button', user: @user %>

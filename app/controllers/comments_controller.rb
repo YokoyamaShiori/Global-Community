@@ -2,9 +2,10 @@ class CommentsController < ApplicationController
   before_action :require_user_logged_in
   
   def create
+    @post_id = params[:post_id]
     @comment = current_user.comments.new(comment_params)
     if @comment.save
-      flash[:success] = 'コメントを投稿しました。'
+      flash[:success] = 'Posted comment.'
       redirect_back(fallback_location: root_path) 
     else
       redirect_back(fallback_location: root_path) 
@@ -13,7 +14,7 @@ class CommentsController < ApplicationController
   
   def destroy
     @comment.destroy
-    flash[:success] = 'コメントを削除しました。'
+    flash[:success] = 'Deleted comment'
     redirect_back(fallback_location: root_path)
   end
 

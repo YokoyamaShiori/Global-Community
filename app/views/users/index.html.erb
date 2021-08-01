@@ -1,4 +1,18 @@
-<%= form_tag(users_path, :method => "get") do %>
- <%= text_field_tag :search %> 
-<%= submit_tag "Search" ,:name => nil ,class: "button is-info"%> 
-<% end %> 
+<h1>User search</h1>
+<%= form_with url: users_path, method: :get, local: true do |f| %>
+  <%= f.text_field :skill %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.skill %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

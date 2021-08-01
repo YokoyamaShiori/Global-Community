@@ -5,18 +5,18 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = 'Posted.'
       redirect_to root_url
     else
       @pagy, @posts = pagy(current_user.feed_posts.order(id: :desc))
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      flash.now[:danger] ='Failed.'
       render 'toppages/index'
     end
   end
 
   def destroy
     @post.destroy
-    flash[:success] = 'メッセージを削除しました。'
+    flash[:success] = 'Deleted.'
     redirect_back(fallback_location: root_path)
   end
 

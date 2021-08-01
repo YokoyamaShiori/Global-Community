@@ -5,25 +5,26 @@
 
 <h3>Comments</h3>
 <% @post.comments.each do |comment|%>
-<ul>
-  <li><%= comment.body %>
-  <span>
-  <% if comment.user_id == current_user.id %>
-  <%= link_to '[X]', post_comment_path, method: :delete %>
-  <% end %>
-  </span>
-  </li>
-</ul>
+  <ul>
+    <li><%= comment.body %>
+      <span>
+        <% if comment.user_id == current_user.id %>
+        <%= link_to "Delete", comment, method: :delete, data: { confirm: "You sure?" } %>
+        <% end %>
+      </span>
+    </li>
+  </ul>
 <% end %>
 
-<%= form_for [@post, @post.comments.build] do |f| %>
-<div class="field">
-  <%= f.text_field :body, autofocus: true, autocomplete: "body" %>
-</div>
-<div class="field">
-  <%= f.hidden_field :user_id, value: current_user.id %>
-</div>
-<div class="actions">
-  <%= f.submit %>
-</div>
+<%= form_for [@post, @post.comments.build] 
+          namespace: comments_controller do |f| %>
+  <div class="field">
+    <%= f.text_field :body, autofocus: true, autocomplete: "body" %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

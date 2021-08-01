@@ -1,5 +1,5 @@
 <div class="text-center">
-  <h1>Sign up</h1>
+  <h1>Edit</h1>
 </div>
 
 <div class="row">
@@ -28,11 +28,16 @@
       </div>
       
       <div class="mb-3">
+        <%= f.label :introduce, 'Introduce' %>
+        <%= f.text_field :introduce, class: 'form-control' %>
+      </div>
+ 
+      <div class="mb-3">
         <%= f.label :skill, 'Languages that can be used' %>
         <%= f.text_field :skill, class: 'form-control' %>
       </div>
-
-      <%= f.submit 'Sign up', class: 'btn btn-primary w-100' %>
+ 
+      <%= f.submit 'Finish?', class: 'btn btn-primary w-100' %>
     <% end %>
   </div>
 </div>
