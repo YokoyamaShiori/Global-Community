@@ -1,0 +1,26 @@
+<div class="text-center">
+  <h1>Detail</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <h3><%= @post.user.name %></h3>
+    <h3><%= @post.content %></h3>
+    <br>
+    <h2>Comment list</h2>
+    <% @comments.each do |c| %>
+      <div>
+        <a href="/users/<%= @comment.user.id %>"><%= @comment.user.name %></a>
+        <%= c.comment_content %>
+        <hr>
+      </div>
+    <% end %>
+
+    <%= form_with(model:[@post, @comment], method: :post) do |f| %>
+    <%= f.text_field :comment_content %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <br>
+    <%= f.submit 'Comment', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

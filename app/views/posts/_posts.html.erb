@@ -11,10 +11,9 @@
             <p><%= post.content %></p>
           </div>
           <div>
+            <%= link_to "Comment", post_path(post.id), class: 'btn btn-primary btn-sm' %>
             <% if current_user == post.user %>
               <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-            <% else %>
-              <%= link_to 'Comment', comment_path(@post), class: 'btn btn-primary btn-sm' %>
             <% end %>
           </div>
           <div>

@@ -1,14 +1,5 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
-  
-  def index
-    @users = User.paginate(page: params[:page], per_page: 5).search(params[:search])
-    if params[:name].present?
-      @users = User.where('name LIKE ?', "%#{params[:name]}%")
-    else
-      @users = User.none
-    end
-  end
 
   def show
     @user = User.find(params[:id])
@@ -57,6 +48,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @pagy, @followers = pagy(@user.followers)
     counts(@user)
+  end
+  
+  def search
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.all
+    end
   end
   
   private

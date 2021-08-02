@@ -6,7 +6,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :introduce, length: { maximum: 255}
   validates :skill, presence: true, length: { maximum: 50}
-  validates :skype, length: { maximum: 255}
   has_secure_password
   
   has_many :posts
@@ -34,12 +33,5 @@ class User < ApplicationRecord
   def feed_posts
     Post.where(user_id: self.following_ids + [self.id])
   end
-  
-  def self.search(search)
-     if search
-       User.where(['name LIKE ?', "%#{search}%"])
-     else
-       User.all
-     end
-  end
+
 end

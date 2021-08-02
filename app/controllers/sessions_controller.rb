@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     email = params[:session][:email].downcase
     password = params[:session][:password]
     if login(email, password)
-      flash[:success] = 'You are now logged.'
+      flash[:success] = 'Welcome back!'
       redirect_to @user
     else
       flash.now[:danger] = 'Failed.'
