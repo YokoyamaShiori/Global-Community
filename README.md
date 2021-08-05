@@ -1,5 +1,5 @@
 # アプリケーションの名前
- Gloval Community
+ Global Community
 
 # 概要
 ## 発案の経緯
