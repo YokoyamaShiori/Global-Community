@@ -49,3 +49,10 @@ gem 'pagy'
 gem 'ransack'
 
 gem 'will_paginate'
+
+gem 'sitemap_generator'
+gem 'meta-tags'
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
