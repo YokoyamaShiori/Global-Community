@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   
   get 'comment', to: 'comments#create'
   
+  resources :posts, only: [:show, :create, :destroy] do
+    resources :comments, only: [:create]
+  end
+  
   resources :users do
     get :search, on: :collection
     member do
@@ -20,10 +24,7 @@ Rails.application.routes.draw do
       get :followers
     end
   end
-
-  resources :posts, only: [:show, :create, :destroy] do
-    resources :comments, only: [:create]
-  end
   
   resources :relationships, only: [:create, :destroy]
+
 end

@@ -33,5 +33,4 @@ class User < ApplicationRecord
   def feed_posts
     Post.where(user_id: self.following_ids + [self.id])
   end
-
 end

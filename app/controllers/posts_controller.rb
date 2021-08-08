@@ -1,17 +1,15 @@
 class PostsController < ApplicationController
   before_action :require_user_logged_in
-  before_action :correct_user, only: [:create, :destroy]
+  before_action :correct_user, only: [:destroy]
   
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
-    @comment = current_user.comments.new 
+    @comment = current_user.comments.build 
   end
 
   def create
     @post = current_user.posts.build(post_params)
-    @comments = @post.comments
-    @comment = Comment.new
     if @post.save
       flash[:success] = 'Posted.'
       redirect_to root_url
