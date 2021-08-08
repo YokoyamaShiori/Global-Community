@@ -18,6 +18,7 @@
 - CSSフレームワーク：Bootstrap5
 - 開発環境：AWS
 - データベース：MySQL
+- デバッグツール：pry-byebug
 - 進行管理：GitHub
  
 # 機能一覧
