@@ -1,0 +1,38 @@
+<div class="text-center">
+  <h1>Create Article</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+    <%= form_with(model: @article, local:true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="mb-3">
+        <%= f.label :title, 'Title' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :language, 'Language studied' %>
+        <%= f.text_field :language, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :material, 'Teaching materials used' %>
+        <%= f.text_field :material, class: 'form-control' %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :period, 'Duration of study' %>
+        <%= f.text_field :period, class: 'form-control' %>
+      </div>
+      
+      <div class="mb-3">
+        <%= f.label :content, 'Text(Describe in detail how you learned the language.)' %>
+        <%= f.text_field :content, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'create', class: 'btn btn-primary w-100' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="text-center">
+  <h1><%= @article.title %></h1>
+  <h3><%= link_to @article.user.name, user_path(@article.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= @article.created_at %></span></h3>
+  <hr>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+    <div class="mb-3">
+      <p>Duration of study:<%= @article.period %></p>
+      <hr>
+    </div>
+    <div class="mb-3">
+      <p>Teaching materials used:<%= @article.material %></p>
+      <hr>
+    </div>
+    <div class="mb-3">
+      <p><%= @article.content %></p>
+      <hr>
+    </div>
+    <div>
+      <% if current_user == @article.user %>
+      　<%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary btn-sm' %>
+        <%= link_to "Delete", @article, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+  </div>
+</div>

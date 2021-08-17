@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_003959) do
+ActiveRecord::Schema.define(version: 2021_08_09_030421) do
 
   create_table "articles", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2021_08_09_003959) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "material"
+    t.string "language"
+    t.string "period"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
